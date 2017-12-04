@@ -1,5 +1,7 @@
 # laravel_demo
 <h4>Installation</h4>
-run composer install
-
-php artisan serve
+<pre>
+$ run composer install
+$ php artisan migrate
+$ php artisan serve
+</pre>

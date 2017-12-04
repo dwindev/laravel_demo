@@ -9,6 +9,17 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+
+    public static function boot()
+    {
+        parent::boot();
+        self::created(function($user)
+        {
+            $profile = new Profile();
+            $user->profile()->save($profile);
+        });
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -26,4 +37,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

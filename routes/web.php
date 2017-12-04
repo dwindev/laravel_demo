@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+Route::group(['middleware' => 'auth'], function () {
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'ProfileController@index');
+Route::get('/profile/details', 'ProfileController@profileDetails');
+Route::put('/profile/update', 'ProfileController@update');
+Route::post('/profile/picture', 'ProfileController@updateProfilePicture');
+Route::post('/posts', 'PostController@index');
+Route::post('/post/create', 'PostController@store');
+Route::post('/comment/create', 'CommentController@store');
+});
+

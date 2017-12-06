@@ -25,7 +25,6 @@ class ProfileController extends Controller
     {
    
         $user = Auth::user()->profile()->update($request->except('id'));
-        
         return response(['user' => $user], 201);
     }
 

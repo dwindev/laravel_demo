@@ -25,6 +25,11 @@ Route::put('/profile/update', 'ProfileController@update');
 Route::post('/profile/picture', 'ProfileController@updateProfilePicture');
 Route::post('/posts', 'PostController@index');
 Route::post('/post/create', 'PostController@store');
+Route::put('/post/update', 'PostController@update');
+Route::delete('/post/delete/{id}', 'PostController@destroy');
 Route::post('/comment/create', 'CommentController@store');
+Route::put('/comment/update', 'CommentController@update');
+Route::delete('/comment/delete/{id}', 'CommentController@destroy');
+
 });
 

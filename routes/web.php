@@ -33,3 +33,4 @@ Route::delete('/comment/delete/{id}', 'CommentController@destroy');
 
 });
 
+Route::get('/play', 'PlayController@index');
